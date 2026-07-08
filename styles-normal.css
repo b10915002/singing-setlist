@@ -22,8 +22,9 @@ body {
   min-height: 100vh;
   color: var(--ink);
   font-family:
-    "LXGW WenKai TC",
-    "Noto Serif TC",
+    "Zen Old Mincho",
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
     Georgia,
     "Times New Roman",
     "PingFang TC",
