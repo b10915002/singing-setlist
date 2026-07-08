@@ -7,6 +7,8 @@
   --green: #0f6f4f;
   --green-soft: #dfe9e2;
   --blue: #1ea0c3;
+  --font-serif: "Zen Old Mincho", "Yu Mincho", "Hiragino Mincho ProN", Georgia, serif;
+  --font-latin: "Marcellus", Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -21,15 +23,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  font-family:
-    "Zen Old Mincho",
-    "Yu Mincho",
-    "Hiragino Mincho ProN",
-    Georgia,
-    "Times New Roman",
-    "PingFang TC",
-    "Microsoft JhengHei",
-    serif;
+  font-family: var(--font-serif);
   background: var(--paper);
 }
 
@@ -53,6 +47,7 @@ input {
 
 .site-brand {
   color: var(--ink);
+  font-family: var(--font-latin);
   font-size: 18px;
   font-weight: 500;
 }
@@ -66,6 +61,7 @@ input {
 .site-nav span,
 .site-nav a {
   color: var(--ink);
+  font-family: var(--font-latin);
   font-size: 12px;
   font-weight: 500;
 }
@@ -82,14 +78,34 @@ input {
 }
 
 .hero {
+  --line-progress: 1;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 56px;
   min-height: 460px;
   padding: 44px 0 54px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--line);
+  transform: scaleX(var(--line-progress));
+  transform-origin: left center;
+}
+
+.hero::before {
+  top: 0;
+}
+
+.hero::after {
+  bottom: 0;
 }
 
 .hero-copy {
@@ -107,6 +123,7 @@ p {
 .kicker {
   margin-bottom: 24px;
   color: var(--green);
+  font-family: var(--font-latin);
   font-size: 15px;
   font-weight: 500;
 }
@@ -142,6 +159,7 @@ h1 {
 .stats-number {
   display: block;
   color: var(--ink);
+  font-family: var(--font-latin);
   font-size: 58px;
   font-weight: 500;
   line-height: 1;
@@ -151,6 +169,7 @@ h1 {
   display: block;
   margin-top: 10px;
   color: var(--muted);
+  font-family: var(--font-latin);
   font-size: 11px;
   font-weight: 500;
 }
@@ -165,6 +184,7 @@ h1 {
   display: block;
   width: min(100%, 380px);
   color: var(--ink);
+  font-family: var(--font-latin);
   font-size: 12px;
   font-weight: 500;
 }
@@ -205,6 +225,7 @@ h1 {
 .section-head p {
   margin-bottom: 6px;
   color: var(--green);
+  font-family: var(--font-latin);
   font-size: 13px;
 }
 
@@ -233,11 +254,17 @@ h1 {
   gap: 34px;
   padding: 28px 0;
   border-bottom: 1px solid var(--line);
+  transition: transform 180ms ease;
+}
+
+.song-card:hover {
+  transform: translateX(6px);
 }
 
 .song-index {
   width: 70px;
   color: var(--green);
+  font-family: var(--font-latin);
   font-size: 14px;
   font-weight: 500;
 }
@@ -248,6 +275,11 @@ h1 {
   font-size: clamp(28px, 4vw, 52px);
   font-weight: 500;
   line-height: 1.16;
+  transition: color 180ms ease;
+}
+
+.song-card:hover h3 {
+  color: var(--green);
 }
 
 .song-card p {
