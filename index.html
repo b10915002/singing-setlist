@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>陪玩歌手應徵歌單</title>
+    <meta
+      name="description"
+      content="陪玩歌手應徵用歌單，整理可演唱曲目供老闆快速瀏覽。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="stage-art" aria-hidden="true">
+          <span class="beam beam-left"></span>
+          <span class="beam beam-right"></span>
+          <span class="orb orb-one"></span>
+          <span class="orb orb-two"></span>
+          <span class="mic-stand"></span>
+        </div>
+
+        <div class="hero-copy">
+          <p class="kicker">陪玩歌手應徵曲目</p>
+          <h1 id="page-title">可演唱歌單</h1>
+          <p class="intro">
+            這裡整理目前可以穩定演唱的歌曲，方便快速確認曲風與曲目。
+          </p>
+        </div>
+
+        <aside class="stats-panel" aria-label="歌單統計">
+          <span class="stats-number" id="song-count">0</span>
+          <span class="stats-label">首可唱曲目</span>
+        </aside>
+      </section>
+
+      <section class="toolbar" aria-label="歌單工具">
+        <label class="search-wrap">
+          <span>搜尋</span>
+          <input id="song-search" type="search" placeholder="輸入歌名或歌手" />
+        </label>
+        <p class="hint">後續補歌會直接加在這裡。</p>
+      </section>
+
+      <section class="song-section" aria-labelledby="song-list-title">
+        <div class="section-head">
+          <h2 id="song-list-title">曲目列表</h2>
+          <span id="visible-count">0 首</span>
+        </div>
+        <ol class="song-list" id="song-list"></ol>
+        <p class="empty-state" id="empty-state" hidden>目前找不到符合的歌曲。</p>
+      </section>
+    </main>
+
+    <script src="songs.js"></script>
+    <script>
+      const songs = Array.isArray(window.SONGS) ? window.SONGS : [];
+      const list = document.querySelector("#song-list");
+      const search = document.querySelector("#song-search");
+      const songCount = document.querySelector("#song-count");
+      const visibleCount = document.querySelector("#visible-count");
+      const emptyState = document.querySelector("#empty-state");
+
+      songCount.textContent = songs.length;
+
+      function normalize(value) {
+        return value.toLowerCase().trim();
+      }
+
+      function renderSongs(query = "") {
+        const needle = normalize(query);
+        const visibleSongs = songs.filter((song) => {
+          const haystack = normalize(`${song.title} ${song.artist}`);
+          return haystack.includes(needle);
+        });
+
+        list.innerHTML = visibleSongs
+          .map(
+            (song, index) => `
+              <li class="song-card">
+                <span class="song-index">${String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>${song.title}</h3>
+                  <p>${song.artist}</p>
+                </div>
+              </li>
+            `
+          )
+          .join("");
+
+        visibleCount.textContent = `${visibleSongs.length} 首`;
+        emptyState.hidden = visibleSongs.length !== 0;
+      }
+
+      search.addEventListener("input", (event) => {
+        renderSongs(event.target.value);
+      });
+
+      renderSongs();
+    </script>
+  </body>
+</html>
