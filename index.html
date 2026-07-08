@@ -13,19 +13,11 @@
   <body>
     <main class="page-shell">
       <section class="hero" aria-labelledby="page-title">
-        <div class="stage-art" aria-hidden="true">
-          <span class="beam beam-left"></span>
-          <span class="beam beam-right"></span>
-          <span class="orb orb-one"></span>
-          <span class="orb orb-two"></span>
-          <span class="mic-stand"></span>
-        </div>
-
         <div class="hero-copy">
-          <p class="kicker">陪玩歌手應徵曲目</p>
+          <p class="kicker">陪玩歌手應徵</p>
           <h1 id="page-title">可演唱歌單</h1>
           <p class="intro">
-            這裡整理目前可以穩定演唱的歌曲，方便快速確認曲風與曲目。
+            整理目前可以穩定演唱的曲目，方便老闆快速確認我的歌路。
           </p>
         </div>
 
@@ -37,10 +29,9 @@
 
       <section class="toolbar" aria-label="歌單工具">
         <label class="search-wrap">
-          <span>搜尋</span>
+          <span>搜尋歌曲</span>
           <input id="song-search" type="search" placeholder="輸入歌名或歌手" />
         </label>
-        <p class="hint">後續補歌會直接加在這裡。</p>
       </section>
 
       <section class="song-section" aria-labelledby="song-list-title">
@@ -64,6 +55,15 @@
 
       songCount.textContent = songs.length;
 
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
       function normalize(value) {
         return value.toLowerCase().trim();
       }
@@ -81,8 +81,8 @@
               <li class="song-card">
                 <span class="song-index">${String(index + 1).padStart(2, "0")}</span>
                 <div>
-                  <h3>${song.title}</h3>
-                  <p>${song.artist}</p>
+                  <h3>${escapeHtml(song.title)}</h3>
+                  <p>${escapeHtml(song.artist)}</p>
                 </div>
               </li>
             `
