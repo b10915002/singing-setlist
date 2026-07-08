@@ -7,8 +7,6 @@
   --green: #0f6f4f;
   --green-soft: #dfe9e2;
   --blue: #1ea0c3;
-  --font-serif: "Zen Old Mincho", "Yu Mincho", "Hiragino Mincho ProN", Georgia, serif;
-  --font-latin: "Marcellus", Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -23,7 +21,15 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  font-family: var(--font-serif);
+  font-family:
+    "Zen Old Mincho",
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    Georgia,
+    "Times New Roman",
+    "PingFang TC",
+    "Microsoft JhengHei",
+    serif;
   background: var(--paper);
 }
 
@@ -47,7 +53,6 @@ input {
 
 .site-brand {
   color: var(--ink);
-  font-family: var(--font-latin);
   font-size: 18px;
   font-weight: 500;
 }
@@ -61,7 +66,6 @@ input {
 .site-nav span,
 .site-nav a {
   color: var(--ink);
-  font-family: var(--font-latin);
   font-size: 12px;
   font-weight: 500;
 }
@@ -123,7 +127,6 @@ p {
 .kicker {
   margin-bottom: 24px;
   color: var(--green);
-  font-family: var(--font-latin);
   font-size: 15px;
   font-weight: 500;
 }
@@ -159,7 +162,6 @@ h1 {
 .stats-number {
   display: block;
   color: var(--ink);
-  font-family: var(--font-latin);
   font-size: 58px;
   font-weight: 500;
   line-height: 1;
@@ -169,7 +171,6 @@ h1 {
   display: block;
   margin-top: 10px;
   color: var(--muted);
-  font-family: var(--font-latin);
   font-size: 11px;
   font-weight: 500;
 }
@@ -184,7 +185,6 @@ h1 {
   display: block;
   width: min(100%, 380px);
   color: var(--ink);
-  font-family: var(--font-latin);
   font-size: 12px;
   font-weight: 500;
 }
@@ -225,7 +225,6 @@ h1 {
 .section-head p {
   margin-bottom: 6px;
   color: var(--green);
-  font-family: var(--font-latin);
   font-size: 13px;
 }
 
@@ -264,7 +263,6 @@ h1 {
 .song-index {
   width: 70px;
   color: var(--green);
-  font-family: var(--font-latin);
   font-size: 14px;
   font-weight: 500;
 }
