@@ -258,8 +258,8 @@ h1 {
 .song-card {
   display: flex;
   align-items: flex-start;
-  gap: 34px;
-  padding: 28px 0;
+  gap: 24px;
+  padding: 18px 0;
   border-bottom: 1px solid var(--line);
   transition: transform 180ms ease;
 }
@@ -269,18 +269,18 @@ h1 {
 }
 
 .song-index {
-  width: 70px;
+  width: 52px;
   color: var(--green);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
 }
 
 .song-card h3 {
-  margin-bottom: 9px;
+  margin-bottom: 5px;
   color: var(--ink);
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: 24px;
   font-weight: 500;
-  line-height: 1.16;
+  line-height: 1.28;
   transition: color 180ms ease;
 }
 
@@ -291,7 +291,7 @@ h1 {
 .song-card p {
   margin-bottom: 0;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -338,15 +338,15 @@ h1 {
   }
 
   .song-card {
-    gap: 20px;
-    padding: 24px 0;
+    gap: 16px;
+    padding: 17px 0;
   }
 
   .song-index {
-    width: 42px;
+    width: 38px;
   }
 
   .song-card h3 {
-    font-size: 30px;
+    font-size: 22px;
   }
 }
