@@ -6,5 +6,9 @@ window.SONGS = [
   {
     title: "一樣愛著你",
     artist: "BY2"
+  },
+  {
+    title: "我愛他",
+    artist: "丁噹"
   }
 ];
